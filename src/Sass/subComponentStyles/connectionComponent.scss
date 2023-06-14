@@ -1,0 +1,70 @@
+// .connection{
+//     display: flex;
+//     justify-content: space-evenly;
+//     align-items: center;
+//     flex-wrap: wrap;
+// }
+
+$linkedInColor1: #0a66c2;
+$linkedInColor2: #0072b1;
+.connectionComponent {
+  width: 100vw;
+  height: auto;
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .connectionContainer {
+    width: 550px;
+
+    padding: 10px;
+    background-color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }}
+.connectionCard{
+margin: 8px;
+width: 35%;
+   background-color: white;
+   color: black;
+    // height: 180px;
+    border: 2px solid whitesmoke;
+    text-align: center;
+    border-radius: 10px;
+padding: 10px;
+
+    .connectionProfile{
+        width: 100px;
+        height: 100px;
+        border-radius: 100%;
+        border: 1px solid;
+    }
+
+    .userName{
+font-size: 16px;
+font-family: system-ui;
+font-weight: 600;
+margin: 3px 0px -2px;
+    }
+    .userHeadline{
+        color: gray;
+        font-size: 12px;
+        margin: 0px 0px 4px;
+    }
+   .connectBtn{
+    color: $linkedInColor1;
+    width: 100px;
+    font-size: 14px;
+    padding: 2px;
+    cursor: pointer;
+    border-radius: 30px;
+    border: 1px solid;
+   }
+  .connectBtn:hover{
+    background-color: rgb(230, 230, 230);
+  }
+
+}
