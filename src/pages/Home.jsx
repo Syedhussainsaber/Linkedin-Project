@@ -36,7 +36,7 @@ const Home = () => {
     })
   }, [])
 
-  useMemo(()=>{
+  useEffect(()=>{
     getCurrentUser(setCurrentUser)
 
       },[])

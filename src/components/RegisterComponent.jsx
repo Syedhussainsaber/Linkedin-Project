@@ -16,6 +16,8 @@ const RegisterComponent = () => {
       const res = await GoogleApi()
       if (res) {
         toast.success('Signed in Successfully')
+console.log(res)
+postUserData({name:res?.user?.displayName,email:res?.user?.email,imageLink:res?.user?.photoURL})
         localStorage.setItem('userEmail', res.user.email)
         localStorage.setItem('userName', res.user.name)
       }
@@ -32,7 +34,7 @@ const RegisterComponent = () => {
       const userId=getUniqueId()
       if (res.user) {
         toast.success('Created account successfully')
-postUserData({name:credentials.name,email:credentials.email, userId: userId})
+postUserData({name:credentials.name,email:credentials.email, userId: userId,imageLink:""})
 localStorage.setItem("userId",userId)
         localStorage.setItem("userName", res.user.name)
         localStorage.setItem('userEmail', res.user.email)

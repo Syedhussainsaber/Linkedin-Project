@@ -85,7 +85,8 @@ setPostImage("")
     <>
       <div className="postComponent">
         <div className="postContainer">
-          {currentUser.imageLink? <img src={currentUser.imageLink} alt="img" className='currentProfileImg'/> : <ImUser className="userIcon" />}
+          {console.log(currentUser)}
+          {currentUser?.imageLink? <img src={currentUser.imageLink} alt="img" className='currentProfileImg'/> : <ImUser className="userIcon" />}
           <button className="post-btn" onClick={showModal}>
             Start a post
           </button>

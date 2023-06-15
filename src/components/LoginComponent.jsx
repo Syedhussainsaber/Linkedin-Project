@@ -5,6 +5,7 @@ import LinkedInLogo from '../assets/LinkedIn_Logo.png'
 import GoogleButton from 'react-google-button'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
+import { postUserData } from '../apis/FirestoreAPI'
 
 const LoginComponent = () => {
   const [credentials, setCredentials] = useState({})
@@ -31,6 +32,7 @@ const LoginComponent = () => {
       const res = await GoogleApi()
       if (res.user) {
         toast.success('Signed in Successfully')
+
         localStorage.setItem('userEmail', res.user.email)
       }
       console.log(res)
