@@ -10,6 +10,9 @@ $linkedInColor2: #0072b1;
   align-items: center;
   flex-direction: column;
   
+  .topBarContainer2{
+    display: none;
+  }
   .postContainer {
     width: 550px;
     height: 100px;
@@ -208,6 +211,7 @@ margin: 5px;
   background-color: white;
   padding: 16px;
   bottom: 0px;
+
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -225,6 +229,8 @@ border: 3px solid rgb(213, 213, 213);
     color: black;
   }
     }
+
+   padding: 0px 0px 60px;
   }
   
   }

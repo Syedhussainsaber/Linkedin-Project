@@ -82,6 +82,8 @@ okButtonProps={{disabled:currentImage.name?false:true}}
 
 <h3 className='userName'>{Object.values(currentProfile).length===0 ? currentUser.name: currentProfile.name}</h3>
 <p className='userHeadline'>{Object.values(currentProfile).length===0 ? currentUser.headline : currentProfile.headline}</p>
+
+<p className='userHeadline'><span style={{color:"#0072b1"}}>Skills:</span>{Object.values(currentProfile).length===0 ? currentUser.skills? " "+currentUser.skills : " No Skills": currentProfile.skills ? " "+currentProfile.skills : " No Skills"}</p>
 <p className='userLocation'>{Object.values(currentProfile).length===0 ? currentUser.location: currentProfile.location}</p>
 </div>
 

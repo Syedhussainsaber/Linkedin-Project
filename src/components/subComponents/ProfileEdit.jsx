@@ -34,6 +34,7 @@ setEditInput({...editInput,...input})
 <input type="text" className="common-edit-input" placeholder='Headline' name='headline' onChange={getEditInput} />
 <input type="text" className="common-edit-input" placeholder='Location' name='location' onChange={getEditInput} />
 <input type="text" className="common-edit-input" placeholder='Company' name='company' onChange={getEditInput} />
+<input type="text" className="common-edit-input" placeholder='Skills' name='skills' onChange={getEditInput} />
 <input type="text" className="common-edit-input" placeholder='College' name='college' onChange={getEditInput} />
 </div>
 

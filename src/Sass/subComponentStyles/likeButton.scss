@@ -51,8 +51,15 @@ hr{
         font-size: 1em;
         font-family: system-ui;
         padding: 3px;
+        background-color:#1e7ad6;
+        color: white;
+        border-radius: 30px;
+        border: none;
         cursor: pointer;
 align-self: flex-end;
+    }
+    .comment-btn:hover{
+        background-color: #0a66c2;
     }
 }
 .comment-box{
@@ -112,4 +119,15 @@ justify-content: space-between;
 
         }
     }
+}
+
+@media (max-width : 575px){
+.comments-container{
+    width: 95%;
+    .comments{
+        .commentTime{
+            font-size: 12px;
+        }
+    }
+}
 }
