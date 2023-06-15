@@ -18,6 +18,7 @@ const HomeComponent = ({currentUser, otherUsers}) => {
     <div>
       <Topbar currentUser = {currentUser} otherUsers = {otherUsers} />
       <PostComponent currentUser = {currentUser} otherUsers = {otherUsers} />
+
     </div>
   )
 }

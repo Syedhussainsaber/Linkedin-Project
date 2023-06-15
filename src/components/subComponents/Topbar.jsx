@@ -63,7 +63,7 @@ email: user?.email
              setSearchInput("")
             }}/>
             {/* {console.log(user)} */}
-            {console.log(searchInput)}
+            {/* {console.log(searchInput)} */}
             {/* <BiSearch className="searchIcon" /> */}
           </div>
         
@@ -74,7 +74,13 @@ email: user?.email
             <BsBriefcaseFill className="navIcons" />
             <AiFillMessage className="navIcons" />
             <MdNotifications className="navIcons" />
-            <ImUser className="navIcons" onMouseOver={()=> setLogoutState(true)} onMouseOut={()=>setLogoutState(false)} onClick={()=> setLogoutState2(true)} onDoubleClick={()=> setLogoutState2(false)} />
+{
+currentUser.imageLink ?
+<img src={currentUser.imageLink} alt="Profile" className='navProfile' onMouseOver={()=> setLogoutState(true)} onMouseOut={()=>setLogoutState(false)} onClick={()=> setLogoutState2(true)} onDoubleClick={()=> setLogoutState2(false)} /> :
+<ImUser className='navIcons' onMouseOver={()=> setLogoutState(true)} onMouseOut={()=>setLogoutState(false)} onClick={()=> setLogoutState2(true)} onDoubleClick={()=> setLogoutState2(false)} />
+
+}
+
             {
               logoutState || logoutState2?<div className="logoutContainer">
                 <button onClick={()=> 
