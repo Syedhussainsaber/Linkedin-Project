@@ -17,6 +17,9 @@ $linkedInColor2: #0072b1;
   align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
+  .topBarContainer2{
+    display: none;
+  }
   .connectionContainer {
     width: 550px;
 

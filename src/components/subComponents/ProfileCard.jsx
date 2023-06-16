@@ -6,6 +6,7 @@ import { Modal } from 'antd'
 import { imageUpload } from '../../apis/ImageApi'
 import { getSinglePost,getSingleUser } from '../../apis/FirestoreAPI'
 import { ImUser } from 'react-icons/im'
+import userImage from "../../assets/userProfile.jpeg"
 
 
 
@@ -66,7 +67,7 @@ console.log(err)
 
 <div className="left-info">
 <div className="profile">
-{(currentUser.imageLink || currentProfile.imageLink) ? ((Object.values(currentProfile).length===0) ?  <img src={currentUser.imageLink} alt="Profile-img" className='profileImage' onClick={()=> setOpen(!open)} />:<img src={currentProfile.imageLink} alt="Profile-img" className='profileImage' onClick={()=> currentProfile.email===currentUser.email ? setOpen(!open):""} /> ): <img src={'/userProfile.jpeg'} onClick={()=> setOpen(!open)} className='profileImage' />}
+{(currentUser.imageLink || currentProfile.imageLink) ? ((Object.values(currentProfile).length===0) ?  <img src={currentUser.imageLink} alt="Profile-img" className='profileImage' onClick={()=> setOpen(!open)} />:<img src={currentProfile.imageLink} alt="Profile-img" className='profileImage' onClick={()=> currentProfile.email===currentUser.email ? setOpen(!open):""} /> ): <img src={userImage} onClick={()=> setOpen(!open)} className='profileImage' />}
 <Modal
             title="Change the profile"
             open={open}

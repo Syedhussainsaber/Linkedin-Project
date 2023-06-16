@@ -8,6 +8,7 @@ import { ImUser } from 'react-icons/im'
 import { logoutApi } from '../../apis/Authapi'
 import {useLocation, useNavigate} from "react-router-dom"
 import {getAllUsers} from "../../apis/FirestoreAPI"
+import LinkedInLogo from '../../assets/Linkedin-logo.png'
 // import LogoutComponent from '../LogoutComponent'
 
 const Topbar = ({currentUser, otherUsers,setProfileState}) => {
@@ -49,7 +50,7 @@ handleSearch()
       <div className="component">
         <div className="topBarComponent">
           <div className="topBarContainer1">
-            <img src="Linkedin-logo.png" alt="LinkedIn" className="logo" onClick={()=> navigate("/home")}/>
+            <img src={LinkedInLogo} alt="LinkedIn" className="logo" onClick={()=> navigate("/home")}/>
             <input type="text" placeholder="Search"  className="searchBar" value={searchInput?searchInput:""} onChange={(event)=> setSearchInput(event.target.value)}/>
             <AiOutlineSearch size={25} className='searchIcon' onClick={()=> { location.pathname === "/profile" ?
 setProfileState({
