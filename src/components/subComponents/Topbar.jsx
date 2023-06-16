@@ -78,7 +78,7 @@ email: user?.email
 {
 currentUser.imageLink ?
 <img src={currentUser.imageLink} alt="Profile" className='navProfile' onMouseOver={()=> setLogoutState(true)} onMouseOut={()=>setLogoutState(false)} onClick={()=> setLogoutState2(true)} onDoubleClick={()=> setLogoutState2(false)} /> :
-<ImUser className='navIcons' onMouseOver={()=> setLogoutState(true)} onMouseOut={()=>setLogoutState(false)} onClick={()=> setLogoutState2(true)} onDoubleClick={()=> setLogoutState2(false)} />
+<ImUser className='navProfile' onMouseOver={()=> setLogoutState(true)} onMouseOut={()=>setLogoutState(false)} onClick={()=> setLogoutState2(true)} onDoubleClick={()=> setLogoutState2(false)} />
 
 }
 

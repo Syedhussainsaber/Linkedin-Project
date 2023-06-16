@@ -32,7 +32,6 @@ const LoginComponent = () => {
       const res = await GoogleApi()
       if (res.user) {
         toast.success('Signed in Successfully')
-        postUserData({name:res?.user?.displayName,email:res?.user?.email,imageLink:res?.user?.photoURL})
         localStorage.setItem('userEmail', res.user.email)
         localStorage.setItem("userName",res?.user?.displayName)
       }
