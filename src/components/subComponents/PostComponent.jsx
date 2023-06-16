@@ -33,7 +33,6 @@ const navigate = useNavigate()
 
   useEffect(() => {
     getPosts(setAllPosts)
-
  }, [])
 
  
