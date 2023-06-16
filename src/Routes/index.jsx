@@ -8,7 +8,7 @@ import Connections from '../pages/Connections'
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <Login />,
+    element: <Register/>,
   },
   {
     path: '/login',
