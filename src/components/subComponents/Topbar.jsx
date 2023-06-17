@@ -28,7 +28,7 @@ setSearchInput("")
 },[])
 
 const handleSearch = ()=>{
-setFilteredUsers(users.filter((user)=>{
+setFilteredUsers(users?.filter((user)=>{
 return Object.values(user).join("").toLowerCase().includes(searchInput.toLowerCase())
 
 }))
@@ -76,8 +76,8 @@ email: user?.email
             <AiFillMessage className="navIcons" />
             <MdNotifications className="navIcons" />
 {
-currentUser.imageLink ?
-<img src={currentUser.imageLink} alt="Profile" className='navProfile' onMouseOver={()=> setLogoutState(true)} onMouseOut={()=>setLogoutState(false)} onClick={()=> setLogoutState2(true)} onDoubleClick={()=> setLogoutState2(false)} /> :
+currentUser?.imageLink ?
+<img src={currentUser?.imageLink} alt="Profile" className='navProfile' onMouseOver={()=> setLogoutState(true)} onMouseOut={()=>setLogoutState(false)} onClick={()=> setLogoutState2(true)} onDoubleClick={()=> setLogoutState2(false)} /> :
 <ImUser className='navProfile' onMouseOver={()=> setLogoutState(true)} onMouseOut={()=>setLogoutState(false)} onClick={()=> setLogoutState2(true)} onDoubleClick={()=> setLogoutState2(false)} />
 
 }
@@ -87,8 +87,8 @@ currentUser.imageLink ?
                 <button onClick={()=> 
                 navigate("/profile",{
                   state:{
-                    id: currentUser.userId,
-                    email: currentUser.email
+                    id: currentUser?.userId,
+                    email: currentUser?.email
                   },replace:true
                 })}>View Profile</button>
               <button onClick={logoutApi}>Logout</button>
@@ -110,8 +110,8 @@ return  <div className="searchChild" onClick={()=> {
 setUser(user)
 // console.log(user)
 setSearchInput(user?.name)
-}}><p>{user.name}</p> 
-{user.imageLink ? <img src={user.imageLink} alt="image" className='image' />: <ImUser className='image'/>}
+}}><p>{user?.name}</p> 
+{user?.imageLink ? <img src={user.imageLink} alt="image" className='image' />: <ImUser className='image'/>}
 </div>
 })}
      

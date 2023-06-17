@@ -36,8 +36,8 @@ const handleUploadComment = async()=>{
     commentData: commentValue,
     timeStamp: GetCurrentTimeStamp("LLL"),
     postId:postId,
-    userName: currentUser.name,
-    userEmail: currentUser.email
+    userName: currentUser?.name,
+    userEmail: currentUser?.email
   }
 await uploadComments(commentDetails)
 setCommentValue("")
@@ -70,10 +70,10 @@ return(
   <div className="commentSection">
   <div className="comments">
     <div className="topSection">
-    <p className='commentUser'>{comment.commentValue.userName}</p>
-    <p className='commentTime'>{comment.commentValue.timeStamp}</p>
+    <p className='commentUser'>{comment?.commentValue?.userName}</p>
+    <p className='commentTime'>{comment?.commentValue?.timeStamp}</p>
   </div>
-<p className='commentData'>{comment.commentValue.commentData}</p>
+<p className='commentData'>{comment?.commentValue?.commentData}</p>
 </div>
   </div>
 )

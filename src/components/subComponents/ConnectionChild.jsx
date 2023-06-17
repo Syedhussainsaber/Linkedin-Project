@@ -13,10 +13,10 @@ const [connection ,setConnection] = useState(false)
 useEffect(()=>{
 getConnections(currentUser?.userId, user?.userId, setConnection)
 }
-,[currentUser.userId,user.userId])
+,[currentUser?.userId,user?.userId])
 
 const handleConnection = ()=>{
-addConnection(currentUser.userId,user.userId)
+addConnection(currentUser?.userId,user?.userId)
 }
 
   return (
@@ -25,9 +25,9 @@ addConnection(currentUser.userId,user.userId)
 <div className="connectionCard">
 {/* {console.log(connection)} */}
 {/* {console.log(connectionCount)} */}
-    {user.imageLink? <img src={user.imageLink} alt="profile-img" className='connectionProfile' />: <ImUser size={100} className='connectionProfile' color='gray'/>}
-    <p className='userName'>{user.name}</p>
-    <p className='userHeadline'>{user.headline}</p>
+    {user?.imageLink? <img src={user.imageLink} alt="profile-img" className='connectionProfile' />: <ImUser size={100} className='connectionProfile' color='gray'/>}
+    <p className='userName'>{user?.name}</p>
+    <p className='userHeadline'>{user?.headline}</p>
     <button className='connectBtn' onClick={handleConnection}>connect</button>
 </div>
 </>

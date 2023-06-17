@@ -1,49 +1,68 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { RegisterApi, GoogleApi } from '../apis/Authapi'
 import '../Sass/loginComponent.scss'
 import LinkedInLogo from '../assets/LinkedIn_Logo.png'
 import GoogleButton from 'react-google-button'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
-import { postUserData } from '../apis/FirestoreAPI'
+import { postUserData,getAllUsers } from '../apis/FirestoreAPI'
 import { getUniqueId } from '../apis/UniqueId'
 
 const RegisterComponent = () => {
   const [credentials, setCredentials] = useState({})
   const navigate = useNavigate()
+  const [allUsers, setAllUsers] = useState([])
+  const [userState, setUserState] = useState(false)
+
+useEffect(()=>{
+  getAllUsers(setAllUsers)
+},[])
+
   const googleAuthHandle = async () => {
     try {
       const res = await GoogleApi()
-      if (res) {
+      if (res?.user) {
         toast.success('Signed in Successfully')
-console.log(res)
-postUserData({name:res?.user?.displayName,email:res?.user?.email,imageLink:res?.user?.photoURL})
-        localStorage.setItem('userEmail', res.user.email)
-        localStorage.setItem('userName', res.user.name)
-      }
-      console.log(res)
+
+const fakeUsers=allUsers?.filter((user)=>{
+  // console.log(user.email)
+if(res?.user?.email.includes(user?.email.toString())){
+return res.user.email
+}
+})
+if(fakeUsers.length === 0){
+  postUserData({name:res?.user?.displayName,email:res?.user?.email,imageLink:res?.user?.photoURL})
+}
+          localStorage.setItem('userEmail', res.user.email)
+          localStorage.setItem('userName', res.user.name)
+}
+
+      // console.log(res)
+
     } catch (err) {
       toast.error('Email not found')
       console.log(err)
     }
   }
 
+
   const handleRegister = async () => {
     try {
-      const res = await RegisterApi(credentials.email, credentials.password)
-      const userId=getUniqueId()
-      if (res.user) {
-        toast.success('Created account successfully')
-postUserData({name:credentials.name,email:credentials.email, userId: userId,imageLink:""})
-localStorage.setItem("userId",userId)
-        localStorage.setItem("userName", res.user.name)
-        localStorage.setItem('userEmail', res.user.email)
-        setCredentials('')
-      } else {
-        toast.error('Account already in use')
-      }
-      console.log(res)
-    } catch (err) {
+     
+      if (credentials.email  && credentials.name  && credentials.password ) {
+        const res = await RegisterApi(credentials.email, credentials.password)
+        const userId=getUniqueId()
+          postUserData({name:res?.user?.displayName,email:res?.user?.email,imageLink:res?.user?.photoURL})
+          toast.success('Created account successfully')
+          localStorage.setItem("userId",userId)
+          localStorage.setItem("userName", res.user.name)
+          localStorage.setItem('userEmail', res.user.email)
+          setCredentials('')
+    }
+    else{
+      alert("Pls fill all the details")
+    }}
+     catch (err) {
       toast.error('Account already in use')
       console.log(err)
     }
@@ -57,6 +76,7 @@ localStorage.setItem("userId",userId)
           <div className="signInComponent">
             <h2 className="signInHeading">Create An Account</h2>
             <div className="inputs">
+              {/* {console.log(allUsers)} */}
               <label>Name</label>
             <input
                 type="text"

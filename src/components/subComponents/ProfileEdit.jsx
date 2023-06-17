@@ -8,8 +8,8 @@ const ProfileEdit = ({editStatus,currentUser}) => {
 
     const updateProfile = async ()=>{
         // console.log(currentUser.userId)
-     await updateProfileData(currentUser.userId, editInput)
-localStorage.setItem("userName", editInput.name)
+     await updateProfileData(currentUser?.userId, editInput)
+localStorage.setItem("userName", editInput?.name)
      await editStatus()
         }
 

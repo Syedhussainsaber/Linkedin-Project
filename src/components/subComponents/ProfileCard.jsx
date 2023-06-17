@@ -42,7 +42,7 @@ if(profileState?.email){
  }, [profileState?.id])
 
  const uploadImage = ()=>{
- imageUpload(currentUser.userId,currentImage).then((url)=>{
+ imageUpload(currentUser?.userId,currentImage).then((url)=>{
 console.log(url)
 setCurrentImage({})
 setOpen(!open)
@@ -55,7 +55,7 @@ console.log(err)
     <> 
     <div className="profileCard">
 {
-  currentProfile.email === currentUser.email || Object.values(currentProfile).length===0 ?
+  currentProfile?.email === currentUser?.email || Object.values(currentProfile).length===0 ?
   <div className="edit-btn">
         <button onClick={editStatus}>Edit</button>
       </div>:""
@@ -67,41 +67,41 @@ console.log(err)
 
 <div className="left-info">
 <div className="profile">
-{(currentUser.imageLink || currentProfile.imageLink) ? ((Object.values(currentProfile).length===0) ?  <img src={currentUser.imageLink} alt="Profile-img" className='profileImage' onClick={()=> setOpen(!open)} />:<img src={currentProfile.imageLink} alt="Profile-img" className='profileImage' onClick={()=> currentProfile.email===currentUser.email ? setOpen(!open):""} /> ): <img src={userImage} onClick={()=> setOpen(!open)} className='profileImage' />}
+{(currentUser?.imageLink || currentProfile?.imageLink) ? ((Object.values(currentProfile).length===0) ?  <img src={currentUser.imageLink} alt="Profile-img" className='profileImage' onClick={()=> setOpen(!open)} />:<img src={currentProfile.imageLink} alt="Profile-img" className='profileImage' onClick={()=> currentProfile.email===currentUser.email ? setOpen(!open):""} /> ): <img src={userImage} onClick={()=> setOpen(!open)} className='profileImage' />}
 <Modal
             title="Change the profile"
             open={open}
             onOk={uploadImage}
             onCancel={handleCancel}
             okText="upload"
-okButtonProps={{disabled:currentImage.name?false:true}}
+okButtonProps={{disabled:currentImage?.name?false:true}}
           >
            <input type='file' onChange={(event)=> setCurrentImage(event.target.files[0])}/>
           </Modal>
 
 </div>
 
-<h3 className='userName'>{Object.values(currentProfile).length===0 ? currentUser.name: currentProfile.name}</h3>
-<p className='userHeadline'>{Object.values(currentProfile).length===0 ? currentUser.headline : currentProfile.headline}</p>
+<h3 className='userName'>{Object.values(currentProfile).length===0 ? currentUser?.name: currentProfile?.name}</h3>
+<p className='userHeadline'>{Object.values(currentProfile).length===0 ? currentUser?.headline : currentProfile?.headline}</p>
 
 <p className='userHeadline'><span style={{color:"#0072b1"}}>Skills:</span>{Object.values(currentProfile).length===0 ? currentUser.skills? " "+currentUser.skills : " No Skills": currentProfile.skills ? " "+currentProfile.skills : " No Skills"}</p>
-<p className='userLocation'>{Object.values(currentProfile).length===0 ? currentUser.location: currentProfile.location}</p>
+<p className='userLocation'>{Object.values(currentProfile).length===0 ? currentUser?.location: currentProfile?.location}</p>
 </div>
 
 <div className='right-info'>
-<p className='college'>{Object.values(currentProfile).length===0 ? currentUser.college : currentProfile.college}</p>
-<p className='company'>{Object.values(currentProfile).length===0? currentUser.company : currentProfile.company}</p>
+<p className='college'>{Object.values(currentProfile).length===0 ? currentUser?.college : currentProfile?.college}</p>
+<p className='company'>{Object.values(currentProfile).length===0? currentUser?.company : currentProfile?.company}</p>
 </div>
 
 </div>
   </div>
 <div className="postComponent">
   {singlePosts.map((post) => {
-    if(post.userEmail === localStorage.getItem("userEmail")){
-      post.userName=currentUser.name
+    if(post?.userEmail === localStorage.getItem("userEmail")){
+      post.userName=currentUser?.name
       }
           return(
-            <div key={post.postId}> 
+            <div key={post?.postId}> 
           <PostCard post={post} currentUser={currentUser} />
           </div>
           ) 

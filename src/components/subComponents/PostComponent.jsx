@@ -84,7 +84,7 @@ setPostImage("")
     <>
       <div className="postComponent">
         <div className="postContainer">
-          {console.log(currentUser)}
+          {/* {console.log(currentUser)} */}
           {currentUser?.imageLink? <img src={currentUser.imageLink} alt="img" className='currentProfileImg'/> : <ImUser className="userIcon" />}
           <button className="post-btn" onClick={showModal}>
             Start a post
@@ -120,12 +120,12 @@ setPostImage("")
           </Modal>
         </div>
         {allPosts.map((post) => {
-          if(post.userEmail===localStorage.getItem("userEmail")){
+          if(post?.userEmail===localStorage.getItem("userEmail")){
             post.userName=currentUser.name
           }
           
           return (
-          <div key={post.postId} >
+          <div key={post?.postId} >
           <PostCard post={post} currentUser={currentUser} setOpen={setOpen} setStatus={setStatus} setEditState={setEditState} setCurrentPost={setCurrentPost} setPostImage={setPostImage} />
           </div>
           )
