@@ -23,7 +23,8 @@
     "react-toastify": "^9.1.2",
     "react-uuid": "^2.0.0",
     "sass": "^1.62.0",
-    "sort-by": "^0.0.2"
+    "sort-by": "^0.0.2",
+    "vercel": "^32.2.1"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.2.1",
